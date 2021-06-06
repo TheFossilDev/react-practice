@@ -1,6 +1,6 @@
 // Now needs a reference to the component css for injection
 import "./ExpenseItem.css";
-import Card from './Card';
+import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 
 // Props is a convention name and is automatically interpreted by React
