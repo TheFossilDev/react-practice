@@ -1,8 +1,9 @@
 // Standard component import
 
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -30,15 +31,19 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+
   // Uppercase first letter is REQUIRED so JSX can detect the custom html component
   return (
-
     <div>
-      <h2>Let's get started!</h2>
-      <Expenses expenses={expenses}/>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expenses={expenses} />
     </div>
   );
-}
+};
 
 // Sends over to index.js
 export default App;
