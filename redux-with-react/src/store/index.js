@@ -1,14 +1,29 @@
 const redux = require('redux');
 
-const counterReducer = (state = { counter: 0 }, action) => {
+const initialState = { counter: 0, showCounter: true };
+const counterReducer = (state = initialState, action) => {
     if (action.type === 'inc') {
         return {
-            counter: state.counter + 1
+            counter: state.counter + 1,
+            showCounter: state.showCounter
         };
     }
     if (action.type === 'dec') {
         return {
-            counter: state.counter - 1
+            counter: state.counter - 1,
+            showCounter: state.showCounter
+        };
+    }
+    if (action.type === 'add') {
+        return {
+            counter: state.counter + action.amount,
+            showCounter: state.showCounter
+        };
+    }
+    if (action.type === 'toggle') {
+        return {
+            showCounter: !state.showCounter,
+            counter: state.counter
         };
     }
 
