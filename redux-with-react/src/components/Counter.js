@@ -1,29 +1,29 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
-import classes from './Counter.module.css';
+import { counterActions } from "../store/index";
+import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
   // "Selects" some specific slice of the redux state (sets up subscription)
   // Changes to redux store causes a rerender in subscriptions
-  const counter = useSelector(state => state.counter);
-  const showCounter = useSelector(state => state.showCounter);
+  const counter = useSelector((state) => state.counter);
+  const showCounter = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch({ type: 'inc' });
+    dispatch(counterActions.inc());
   };
 
   const decrementHandler = () => {
-    dispatch({ type: 'dec' });
-  }
+    dispatch(counterActions.dec());
+  };
 
   const addHandler = () => {
-    dispatch({ type: 'add', amount: 5 });
-  }
-
+    dispatch(counterActions.add(5));
+  };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: 'toggle' })
+    dispatch(counterActions.toggle());
   };
 
   return (
